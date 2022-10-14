@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using MakeAPI.Context;
+using MakeAPI.Dtos;
 using MakeAPI.Entities;
+using MakeAPI.Extention;
 
 namespace MakeAPI.Controllers
 {
     [ApiController]
-    [Route("/flower")]
-     
+    [Route("[controller]")]
     public class FlowersController : ControllerBase
     {
         private readonly FlowersContext _context;
@@ -14,6 +15,13 @@ namespace MakeAPI.Controllers
         public FlowersController(FlowersContext context)
         {
             _context = context;
+        }
+        [HttpPost]
+        public IActionResult AddFlowerDto([FromBody] FlowerDto flowerDto)
+        {
+            Flower flower = flowerDto.ToFlower();
+            _context.FlowerAdd(flower);
+            return Ok(flower);
         }
         [HttpGet("allflowers")]
        public IActionResult AllFlowers()
