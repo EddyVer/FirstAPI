@@ -1,25 +1,25 @@
 namespace MakeAPI.Context
 {
     using Entities;
+    using MakeAPI.Dtos;
+
     public class FlowersContext
     { 
         
-         public List<Color> Colors {set; get;}
-         // public List<Color> list() => Colors;
-        // public Color Get(int id) => Colors.First(x => x.Id == id);
-        // public Color Get(string name) => Colors.First(x => x.name == name);
+        // public List<Color> Colors {set; get;}
         
         public List<Flower> Flowers { get; set;}
+        public List<FlowerDto> FlowersDtos {set; get;}
        public List<Flower> List() => Flowers;
        public Flower GetId(int id) => Flowers.First(x => x.Id == id);
        public Flower GetName(string name) => Flowers.First(x => x.Name == name);
        public Flower GetColor(string color) => Flowers.First(x => x.Color.Name == color);
 
+
        public void FlowerAdd(Flower flower)
        {
-            flower.Id = Flowers.Count;
-           //flower.Color.Id = Colors.Count;
-           Flowers.Add(flower);
+            flower.Id = Flowers.Count+1;
+            Flowers.Add(flower);
        }
 
        public void FlowerModif(int id, Flower flower)

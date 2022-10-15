@@ -16,48 +16,44 @@ namespace MakeAPI.Controllers
         {
             _context = context;
         }
-        [HttpPost]
-        public IActionResult AddFlowerDto([FromBody] FlowerDto flowerDto)
-        {
-            Flower flower = flowerDto.ToFlower();
-            _context.FlowerAdd(flower);
-            return Ok(flower);
-        }
+
         [HttpGet("allflowers")]
        public IActionResult AllFlowers()
        {
-          return Ok(_context.List());
+          return Ok(_context.List().Select(flower => flower.ToFlowerDto()).ToList());
        }
 
        [HttpGet("ById/{id}")]
        public IActionResult GetById(int id)
        {
-           return Ok(_context.GetId(id));
+           return Ok(_context.GetId(id).ToFlowerDto());
        }
 
        [HttpGet("ByName/{name}")]
        public IActionResult GetByName(string name)
        {
-           return Ok(_context.GetName(name));
+           return Ok(_context.GetName(name).ToFlowerDto());
        }
        
        [HttpGet("ByColor/{color}")]
        public IActionResult GetByColor(string color)
        {
-           return Ok(_context.GetColor(color));
+           return Ok(_context.GetColor(color).ToFlowerDto());
        }
 
-       [HttpPost]
-       public IActionResult AddFlower([FromBody] Flower flower)
-       {
-           _context.FlowerAdd(flower);
-           return Ok(flower);
-       }
+        [HttpPost("NewFlower")]
+        public IActionResult AddFlower([FromBody] FlowerDto flowerDto)
+        {
+            Flower flower = flowerDto.ToFlower();
+            _context.FlowerAdd(flower);
+            return Ok(flower);
+        }
 
-       [HttpPut("modif/{id}")]
-       public IActionResult ModifFlower(int id, [FromBody] Flower flower)
+        [HttpPut("modif/{id}")]
+       public IActionResult ModifFlower(int id, [FromBody] FlowerDto flowerDto)
        {
-           _context.FlowerModif(id,flower);
+            Flower flower = flowerDto.ToFlower();
+            _context.FlowerModif(id,flower);
            return Ok();
        }
 
