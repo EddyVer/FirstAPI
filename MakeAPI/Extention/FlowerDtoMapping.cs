@@ -15,4 +15,14 @@ public static class FlowerDtoMapping
             Color = flowerDto.Color
         };
     }
+    public static FlowerDto ToFlowerDto(this Flower flower)
+    {
+        return new FlowerDto
+        {
+            Id = flower.Id,
+            Name = flower.Name,
+            Age = flower.Age,
+            Color = flower.Color
+        };
+    }
 }
