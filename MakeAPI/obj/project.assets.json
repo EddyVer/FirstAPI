@@ -229,11 +229,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vervo\\Source\\Repos\\FirstAPI\\MakeAPI\\MakeAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Vervo\\source\\repos\\FirstAPI\\MakeAPI\\MakeAPI.csproj",
       "projectName": "MakeAPI",
-      "projectPath": "C:\\Users\\Vervo\\Source\\Repos\\FirstAPI\\MakeAPI\\MakeAPI.csproj",
+      "projectPath": "C:\\Users\\Vervo\\source\\repos\\FirstAPI\\MakeAPI\\MakeAPI.csproj",
       "packagesPath": "C:\\Users\\Vervo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vervo\\Source\\Repos\\FirstAPI\\MakeAPI\\obj\\",
+      "outputPath": "C:\\Users\\Vervo\\source\\repos\\FirstAPI\\MakeAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vervo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -289,5 +289,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Vervo\\source\\repos\\FirstAPI\\MakeAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
